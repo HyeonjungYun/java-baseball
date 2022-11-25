@@ -11,7 +11,7 @@ import java.io.InputStream;
 
 public class InputViewTest {
 
-    @DisplayName("")
+    @DisplayName("사용자의 3자리 숫자 입력값에 예외 사항이 있는지 확인")
     @ValueSource(strings = {"012","a12","12","1234"})
     @ParameterizedTest
     void inputBallNumberTest (String ballNumber) {
@@ -24,7 +24,7 @@ public class InputViewTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("")
+    @DisplayName("사용자의 재시작 커맨드 입력값에 예외 사항이 있는지 확인")
     @ValueSource(strings = {"0","a"," "})
     @ParameterizedTest
     void inputRestartNumberTest (String restart) {
