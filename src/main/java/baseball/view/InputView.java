@@ -8,9 +8,10 @@ import java.util.stream.Collectors;
 public class InputView {
 
     public List<Integer> inputBallNumber () {
-        String ballNumber = Console.readLine();
+        List<Integer> ballNumber = convertBallNumber(Console.readLine());
+        validateBallNumber(ballNumber);
 
-        return convertBallNumber(ballNumber);
+        return ballNumber;
     }
 
     public int inputRestart () {
@@ -33,6 +34,10 @@ public class InputView {
                 .peek(this::isRealNumber)
                 .map((number) -> number - '0')
                 .boxed().collect(Collectors.toList());
+    }
+
+    private void validateBallNumber (List<Integer> ballNumber) {
+        if(ballNumber.size() != 3) throw new IllegalArgumentException();
     }
 
     private void isRealNumber (int number) {
