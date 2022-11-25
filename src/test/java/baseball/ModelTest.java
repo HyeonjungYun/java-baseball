@@ -11,7 +11,7 @@ public class ModelTest {
 
     @DisplayName("스트라이크, 볼의 갯수가 정확하게 나오는 지 확인")
     @Test
-    void checkBallNumber () {
+    void checkStrikeBallResult () {
         Model model = new Model();
 
         List<Integer> generateNumbers = List.of(1,2,3);
