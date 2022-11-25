@@ -14,10 +14,11 @@ public class ModelTest {
 
         List<Integer> generateNumbers = List.of(1,2,3);
         List<Integer> userNumbers = List.of(1,4,5);
+        model.setGenerateNumbers(generateNumbers);
 
         List<Integer> result = List.of(1,0);
 
-        assertThat(model.getStrikeBall(generateNumbers, userNumbers))
+        assertThat(model.getStrikeBall(userNumbers))
                 .isEqualTo(result);
     }
 }
