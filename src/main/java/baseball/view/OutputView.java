@@ -11,20 +11,24 @@ public class OutputView {
     }
 
     public void printResult (List<Integer> strikeBall) {
+        printNothing(strikeBall);
+        printBall(strikeBall.get(1));
+        printStrike(strikeBall.get(0));
+        System.out.println();
+    }
 
+    public void printNothing (List<Integer> strikeBall) {
         if (strikeBall.get(0) < 1 && strikeBall.get(1) < 1) {
-            System.out.println("낫싱");
+            System.out.print("낫싱");
         }
-        if (strikeBall.get(0) < 1 && strikeBall.get(1) > 0) {
-            System.out.printf("%d볼\n", strikeBall.get(1));
-        }
-        if (strikeBall.get(0) > 0 && strikeBall.get(1) < 1) {
-            System.out.printf("%d스트라이크\n", strikeBall.get(0));
+    }
 
-            if(strikeBall.get(0) == 3) PrintMessage.CLEAR.print();
-        }
-        if (strikeBall.get(0) > 0 && strikeBall.get(1) > 0) {
-            System.out.printf("%d볼 %d스트라이크\n", strikeBall.get(1), strikeBall.get(0));
-        }
+    private void printBall (int ball) {
+        if (ball > 0) System.out.printf("%d볼 ", ball);
+
+    }
+
+    private void printStrike (int strike) {
+        if (strike > 0) System.out.printf("%d스트라이크 ", strike);
     }
 }
