@@ -30,7 +30,7 @@ public class InputView {
 
     private List<Integer> convertBallNumber (String inputNumber) {
         return inputNumber.chars()
-                .peek((number) -> isRealNumber(number))
+                .peek(this::isRealNumber)
                 .map((number) -> number - '0')
                 .boxed().collect(Collectors.toList());
     }
