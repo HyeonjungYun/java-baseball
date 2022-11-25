@@ -25,16 +25,24 @@ public class Controller {
             NumberGenerator generatedNumber = new NumberGenerator();
             model.setGenerateNumbers(generatedNumber.getCorrectNumbers());
 
-            while (true) {
-                PrintMessage.INPUT.print();
-                List<Integer> strikeBall = model.getStrikeBall(input.inputBallNumber());
-
-                output.printResult(strikeBall);
-
-                if (strikeBall.get(0) == 3) break;
-            }
+            checkPlayingBaseball(model, input, output);
 
             if(restart(input, output)) break;
+        }
+    }
+
+    private void checkPlayingBaseball (Model model, InputView input, OutputView output) {
+
+        while (true) {
+            PrintMessage.INPUT.print();
+            List<Integer> strikeBall = model.getStrikeBall(input.inputBallNumber());
+
+            output.printResult(strikeBall);
+
+            if (strikeBall.get(0) == 3) {
+                System.out.println("게임 종료");
+                break;
+            }
         }
     }
 
